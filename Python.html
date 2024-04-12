@@ -1,0 +1,835 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Python Programming</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="89faf315-183e-4b65-a3de-466595ad915c" class="page serif"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/code_blue.svg"/></div><h1 class="page-title">Python Programming</h1><p class="page-description"></p></header><div class="page-body"><p id="cffe36f6-d904-4ba9-86fc-f7f2f5d31567" class="">👋  Welcome! to Ontime Updates</p><h3 id="861f0cf1-2673-4af3-95fe-bcd2b93a5cdd" class=""><mark class="highlight-purple">What is Python?</mark></h3><p id="d52fb90e-3508-4c1a-a754-626d794610bc" class="">Python is a high-level programming language known for its simplicity and readability. It is widely used in various domains, such as web development, data analysis, artificial intelligence, and automation. Python has a large and active community, which contributes to its extensive library ecosystem and makes it a popular choice among developers.</p><h3 id="a495d96a-2600-44f3-b2c3-41964c72ade4" class=""><mark class="highlight-pink">History of Python:</mark></h3><p id="38cb4cff-571f-45ce-9a20-3517fbf147b0" class="">Python was created by <mark class="highlight-brown"><em><strong>Guido van Rossum</strong></em></mark><mark class="highlight-brown"> </mark>and first released in 1991. It was designed to be a simple and easy-to-read programming language that emphasizes code readability. Python&#x27;s syntax is known for its use of whitespace indentation instead of curly brackets or keywords, which makes it highly readable and helps maintain a clean and organized code structure.</p><p id="d2ec51a7-1cd3-4b0e-8dfb-6b1710ffa928" class="">Over the years, Python has gained popularity and has become one of the most widely used programming languages in the world. Its versatility allows it to be used for a wide range of applications, from web development to scientific computing and machine learning.</p><p id="1b4d0702-e63e-45eb-a4ca-8d5a832623fc" class="">Python&#x27;s success can be attributed to its extensive library ecosystem, which provides developers with a vast collection of pre-built modules and packages that can be easily integrated into their projects. This allows developers to leverage existing solutions and accelerate their development process.</p><p id="79ae9cb2-1fb9-4517-9bc1-e1bb3c5c6bc4" class="">With its simplicity, readability, and powerful features, Python continues to be a popular choice among programmers of all levels of experience.</p><h3 id="33c0b2b7-3d3c-47ba-9c9c-d6647e67d8b1" class=""><mark class="highlight-orange">Python Features:</mark></h3><ul id="5f294c7f-e15b-44ac-b891-2a927cfd9c9e" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple and Readable Syntax: </strong>Python&#x27;s syntax is designed to be simple and easy to read, using whitespace indentation instead of curly brackets or keywords.</li></ul><ul id="289cb51b-624a-4df4-a1db-ced9d414af4c" class="bulleted-list"><li style="list-style-type:disc"><strong>Extensive Library Ecosystem:</strong> Python has a vast collection of pre-built modules and packages that can be easily integrated into projects, allowing developers to leverage existing solutions.</li></ul><ul id="a7c0e669-3165-4bfe-8e6c-4b2b47269fcf" class="bulleted-list"><li style="list-style-type:disc"><strong>Versatility:</strong> Python can be used for various applications, including web development, data analysis, artificial intelligence, and automation.</li></ul><ul id="0373ab68-074d-41aa-bf65-fc68abfe116f" class="bulleted-list"><li style="list-style-type:disc"><strong>Active Community: </strong>Python has a large and active community that contributes to its development and provides support to developers.</li></ul><ul id="0f173a24-87d8-4377-8390-c1c11fa71b7e" class="bulleted-list"><li style="list-style-type:disc"><strong>Cross-Platform Compatibility: </strong>Python programs can run on different operating systems, including Windows, macOS, and Linux.</li></ul><ul id="6e460414-ae3c-4b7d-b936-27174d454fa9" class="bulleted-list"><li style="list-style-type:disc"><strong>Scalability: </strong>Python supports both small and large-scale projects and can handle complex tasks efficiently.</li></ul><ul id="140128fe-275f-4e99-bd9d-98b33c8b0735" class="bulleted-list"><li style="list-style-type:disc"><strong>Integration Capabilities: </strong>Python can easily integrate with other languages, allowing developers to combine different tools and technologies.</li></ul><ul id="dd0fbf3d-597b-4475-89d7-893cb6324c00" class="bulleted-list"><li style="list-style-type:disc"><strong>Learning Resources: </strong>Python has a wealth of learning resources, including documentation, tutorials, and online communities, making it accessible for beginners and experienced programmers.</li></ul><h3 id="4bf1ec50-2928-4a64-a69e-e5702661b350" class=""><mark class="highlight-yellow">Applications of Python:</mark></h3><p id="db631034-3d37-4c84-8cac-619afef2e9e4" class="">Python is widely used in various domains, including:</p><ul id="de7c8725-729c-4207-a13f-2dd1329354cc" class="bulleted-list"><li style="list-style-type:disc"><strong>Web development:</strong> Python frameworks like Django and Flask are popular for building web applications.</li></ul><ul id="3ac01f9d-48fc-46be-8ac8-5d0189918303" class="bulleted-list"><li style="list-style-type:disc"><strong>Data analysis: </strong>Python&#x27;s libraries like Pandas, NumPy, and Matplotlib are widely used for data manipulation, analysis, and visualization.</li></ul><ul id="40e2be3f-8811-4666-b975-af8ca9b3f8e1" class="bulleted-list"><li style="list-style-type:disc"><strong>Artificial intelligence and machine learning:</strong> Python is a preferred language for developing AI and ML models, with libraries like TensorFlow and PyTorch.</li></ul><ul id="21a859b3-de4c-4366-bdd5-bb105134782e" class="bulleted-list"><li style="list-style-type:disc"><strong>Automation:</strong> Python&#x27;s simplicity and versatility make it ideal for automating tasks and scripting.</li></ul><ul id="7e802555-fc1b-4b9d-8c8b-a63f4323c6a9" class="bulleted-list"><li style="list-style-type:disc"><strong>Scientific computing:</strong> Python is used extensively in scientific computing for simulations, data analysis, and visualization.</li></ul><ul id="fd42a70e-58fa-4c78-9664-253456bb2d43" class="bulleted-list"><li style="list-style-type:disc"><strong>Robotics:</strong> Python is used in robotics for programming and controlling robots.</li></ul><ul id="2608a409-497f-42af-89b1-de51512eb9ac" class="bulleted-list"><li style="list-style-type:disc"><strong>Game development: </strong>Python is used to develop games with libraries like Pygame.</li></ul><ul id="621c6a27-689b-4c83-8aca-675397325d57" class="bulleted-list"><li style="list-style-type:disc"><strong>Scripting:</strong> Python is often used for scripting tasks, system administration, and network programming.</li></ul><h3 id="c5c99ff0-93d0-4908-aca9-02da00b8b11e" class=""><mark class="highlight-blue">Variables</mark><mark class="highlight-red"> </mark><mark class="highlight-default">&amp; </mark><mark class="highlight-teal">Datatypes:</mark></h3><p id="f9cb31b7-cfc7-4da5-b5cc-1b2d941f0147" class=""><mark class="highlight-blue">Variables:</mark></p><p id="df5968c0-dded-45ab-8567-09053681a4c4" class="">In Python, variables are used to store data values. They can be assigned different types of values, such as numbers, strings, or boolean values. Unlike some other programming languages, Python does not require explicit declaration of variables.</p><p id="c87d3074-b021-425f-a9ee-9afdf0044874" class="">To assign a value to a variable, you can use the assignment operator <code>=</code>. For example:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="27ef41dd-52b2-4b91-8c2c-70fe61992312" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = 5 # Here x is Variable and 5 is Value</code></pre><p id="84c98f27-6f07-4224-a44c-a693c7fd8518" class="">In this example, we assigned the value <code>5</code> to the variable <code>x</code>. The variable <code>x</code> now holds the value <code>5</code>.</p><h3 id="be8d493c-59ff-41ea-8f6f-ee5daf8da8cb" class=""><mark class="highlight-teal">Datatypes:</mark></h3><p id="abb13356-c3a6-46e0-b426-cf01236c8667" class="">Python supports the following datatypes:</p><ul id="7b56b0a5-c6bc-4599-9347-8814ef6c5e4b" class="bulleted-list"><li style="list-style-type:disc"><strong>Numbers:</strong> Python supports integers, floating-point numbers, and complex numbers.</li></ul><ul id="d7cb8fa5-c2da-46e2-af34-73a51c9bc5a7" class="bulleted-list"><li style="list-style-type:disc"><strong>Strings:</strong> Strings are sequences of characters enclosed in single quotes (<code>&#x27;</code>) or double quotes (<code>&quot;</code>).</li></ul><ul id="0fd9ad47-0e95-42ae-a742-fba5b2600e5c" class="bulleted-list"><li style="list-style-type:disc"><strong>Boolean:</strong> Boolean values can be either True or False.</li></ul><ul id="c61bdeb3-caba-4864-8101-48757580449e" class="bulleted-list"><li style="list-style-type:disc"><strong>Lists:</strong> Lists are ordered collections of items, enclosed in square brackets (<code>[]</code>).</li></ul><ul id="855b55d2-0be9-4b84-9359-15683bd15262" class="bulleted-list"><li style="list-style-type:disc"><strong>Tuples:</strong> Tuples are similar to lists but are immutable, meaning they cannot be modified once created.</li></ul><ul id="8ff60ba0-e597-4ec2-8ddd-5084494e25b1" class="bulleted-list"><li style="list-style-type:disc"><strong>Dictionaries:</strong> Dictionaries are key-value pairs enclosed in curly braces (<code>{}</code>).</li></ul><p id="516af3bc-c103-4667-9217-68e3810c831e" class="">Here&#x27;s an example of creating and using variables with different datatypes in Python:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="51760975-212c-4a9c-922b-6d8cdbe28ba5" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Numbers
+age = 25
+weight = 65.5
+complex_number = 2 + 3j
+
+# Strings
+name = &quot;John Doe&quot;
+message = &#x27;Hello, world!&#x27;
+
+# Boolean
+is_active = True
+is_admin = False
+
+# Lists
+numbers = [1, 2, 3, 4, 5]
+fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+
+# Tuples
+coordinates = (10, 20)
+person = (&quot;John&quot;, 25, &quot;USA&quot;)
+
+# Dictionaries
+student = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 20, &quot;major&quot;: &quot;Computer Science&quot;}
+employee = {&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 30, &quot;department&quot;: &quot;Sales&quot;}
+</code></pre><p id="f4139066-bb1e-4bb6-982b-f2334ec9468d" class="">In Python, variables are dynamically typed, which means you can assign different types of values to the same variable. The data type of a variable is determined by the value it holds at runtime.</p><h3 id="cac77d7d-4502-4ad1-abb0-41bec6fb864a" class=""><mark class="highlight-gray">Operators in Python:</mark></h3><h3 id="6aceb29a-4da4-4202-a02a-93755ff0307f" class=""><strong>1. Arithmetic Operators:</strong></h3><p id="14f92a2e-3397-4c63-92a9-f6fef94bf55e" class="">These operators perform basic mathematical operations.</p><ul id="bfc8270e-8a93-42ba-aad1-5c284570354f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>+</strong></code> (Addition)</li></ul><ul id="f28f76bd-f95c-4456-8f45-4dbfdb7c1f6d" class="bulleted-list"><li style="list-style-type:disc"><code><strong></strong></code> (Subtraction)</li></ul><ul id="8d007a9a-39e0-4384-8e2d-787db48619ce" class="bulleted-list"><li style="list-style-type:disc"><code><strong></strong></code> (Multiplication)</li></ul><ul id="d5e99bc4-192e-4fd5-8094-2af5f3b464cc" class="bulleted-list"><li style="list-style-type:disc"><code><strong>/</strong></code> (Division)</li></ul><ul id="aabf22d8-383a-49bd-a2a8-0f4cb149f57e" class="bulleted-list"><li style="list-style-type:disc"><code><strong>%</strong></code> (Modulus)</li></ul><ul id="45f316f7-3770-49da-a14f-b373d17fc2b5" class="bulleted-list"><li style="list-style-type:disc"><code><strong>//</strong></code> (Floor Division)</li></ul><ul id="15fe8fc2-e4cb-465a-ba1f-0642b9e7e368" class="bulleted-list"><li style="list-style-type:disc"><code><strong>*</strong></code> (Exponentiation)</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8e087696-4a28-44af-9106-fc7efb682775" class="code"><code class="language-Python">a = 10
+b = 3
+
+addition_result = a + b       # 13
+subtraction_result = a - b    # 7
+multiplication_result = a * b # 30
+division_result = a / b       # 3.3333333333333335
+modulus_result = a % b        # 1
+floor_division_result = a // b # 3
+exponentiation_result = a ** b # 1000</code></pre><h3 id="2fba53da-0e6a-4893-9d1c-449833e52eb8" class=""><strong>2. Comparison Operators:</strong></h3><p id="fdd5efb3-c915-42e1-98d0-976c4eb15114" class="">These operators are used to compare values.</p><ul id="3ad382f7-9634-4704-bd68-c183bcca20fd" class="bulleted-list"><li style="list-style-type:disc"><code><strong>==</strong></code> (Equal to)</li></ul><ul id="9d987a19-a420-4ac4-b8ae-c50d63b50dd0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>!=</strong></code> (Not equal to)</li></ul><ul id="5c60ff3b-c730-4a0c-9650-4724c410de86" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;</strong></code> (Less than)</li></ul><ul id="a1333a73-53b5-45e7-bbbd-a46f6a7c84e6" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&gt;</strong></code> (Greater than)</li></ul><ul id="45fbd47d-8b2a-4ebc-95d2-797024565cc4" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;=</strong></code> (Less than or equal to)</li></ul><ul id="4ff024bf-a8e4-4cef-84d6-47c299c79013" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&gt;=</strong></code> (Greater than or equal to)</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="da70e189-de17-4b95-aecf-9d17aaf7d790" class="code"><code class="language-Python">x = 5
+y = 10
+
+is_equal = x == y              # False
+is_not_equal = x != y           # True
+is_less_than = x &lt; y            # True
+is_greater_than = x &gt; y         # False
+is_less_than_or_equal = x &lt;= y  # True
+is_greater_than_or_equal = x &gt;= y # False</code></pre><h3 id="9c007da7-6bee-47e2-9aa4-3a569c41a0d7" class=""><strong>3. Logical Operators:</strong></h3><p id="1f4ce067-fe34-45c6-8217-05af9052ac82" class="">These operators perform logical operations.</p><ul id="ba9fe2b4-981b-46d3-a947-6943bdef6054" class="bulleted-list"><li style="list-style-type:disc"><code><strong>and</strong></code> (Logical AND)</li></ul><ul id="0f9207f2-6365-499d-83c3-fdb1b164e9ce" class="bulleted-list"><li style="list-style-type:disc"><code><strong>or</strong></code> (Logical OR)</li></ul><ul id="66ba0ffd-9d56-4b76-9aa9-c84b326da49f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>not</strong></code> (Logical NOT)</li></ul><p id="14b91b79-ccf5-4204-b72c-03e0f48deead" class="">a = True<br/>b = False<br/></p><p id="78bd4562-e137-467f-8420-acbf27c763b0" class="">result_and = a and b  # False<br/>result_or = a or b    # True<br/>result_not = not a    # False<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ae046496-0b19-4381-9707-90b810d97755" class="code"><code class="language-Python">a = True
+b = False
+
+result_and = a and b  # False
+result_or = a or b    # True
+result_not = not a    # False</code></pre><h3 id="b165269d-2a11-43ed-abf3-5fb40e7d3619" class=""><strong>4. Assignment Operators:</strong></h3><p id="6f68a054-2675-4c6f-b4e1-64604722bd20" class="">These operators are used to assign values to variables.</p><ul id="93225076-7f56-4996-a6a4-1b2d643a4755" class="bulleted-list"><li style="list-style-type:disc"><code><strong>=</strong></code> (Assignment)</li></ul><ul id="a96cc494-55ea-4a8e-9bf7-f7f22edbd20f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>+=</strong></code> (Add and assign)</li></ul><ul id="1d6d267e-f4a0-4ca8-b8de-8b904b5675aa" class="bulleted-list"><li style="list-style-type:disc"><code><strong>=</strong></code> (Subtract and assign)</li></ul><ul id="941ac88e-70e3-463e-a81c-84854fbb5fd5" class="bulleted-list"><li style="list-style-type:disc"><code><strong>=</strong></code> (Multiply and assign)</li></ul><ul id="6fa4c402-d96a-46fa-ac87-679506f6e3e3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>/=</strong></code> (Divide and assign)</li></ul><ul id="e32564fe-59d0-4659-8b76-c7053fb391e6" class="bulleted-list"><li style="list-style-type:disc"><code><strong>%=</strong></code> (Modulus and assign)</li></ul><ul id="d7e95517-74b5-4f02-afc0-a8732fccf847" class="bulleted-list"><li style="list-style-type:disc"><code><strong>//=</strong></code> (Floor divide and assign)</li></ul><ul id="68e643a1-8a0c-4ff5-a678-eb19a3401e78" class="bulleted-list"><li style="list-style-type:disc"><code><strong>*=</strong></code> (Exponentiate and assign)</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="02006ddb-49f4-4715-8e3c-fa7a70f5a2f4" class="code"><code class="language-Python">x = 10
+x += 5   # Equivalent to x = x + 5</code></pre><h3 id="afe1aab8-4924-452a-967e-c723630198b9" class=""><strong>5. Bitwise Operators:</strong></h3><p id="339186c3-2eaf-4125-b041-ad723dff6016" class="">These operators perform bit-level operations.</p><ul id="4fc15029-d9ed-461e-9cae-c7fdfc568280" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&amp;</strong></code> (Bitwise AND)</li></ul><ul id="0d446d6c-3241-4c38-b01b-6d12e5de6f19" class="bulleted-list"><li style="list-style-type:disc"><code><strong>|</strong></code> (Bitwise OR)</li></ul><ul id="25188491-0a63-468e-8ea7-2f0e7ea0f50d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>^</strong></code> (Bitwise XOR)</li></ul><ul id="be47a263-ca99-47f7-98c0-de44b344a1b1" class="bulleted-list"><li style="list-style-type:disc"><code><strong>~</strong></code> (Bitwise NOT)</li></ul><ul id="9c5ae293-02aa-42b0-be96-14d8a077ba5f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;&lt;</strong></code> (Left shift)</li></ul><ul id="a229edd1-c3df-4fa1-b2be-407a24c19a69" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&gt;&gt;</strong></code> (Right shift)</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="dd329125-a7b5-4420-a9c3-2257bac3c5d0" class="code"><code class="language-Python">a = 5   # Binary: 0101
+b = 3   # Binary: 0011
+
+result_and = a &amp; b   # Binary: 0001 (1 in decimal)
+result_or = a | b    # Binary: 0111 (7 in decimal)
+result_xor = a ^ b   # Binary: 0110 (6 in decimal)
+result_not_a = ~a    # Binary: 1010 (-6 in decimal)</code></pre><h3 id="3c63bf7e-f12a-4b18-9ca3-281812efb73d" class=""><strong>6. Membership Operators:</strong></h3><p id="10b0b54c-5d81-4060-bbfe-086f77f89c42" class="">These operators test membership in a sequence.</p><ul id="e35b4117-8749-46c5-a7a1-d9750a66a24c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>in</strong></code> (True if a value is found in the sequence)</li></ul><ul id="081b6ff9-9b27-496b-aaf3-a11cda412ba1" class="bulleted-list"><li style="list-style-type:disc"><code><strong>not in</strong></code> (True if a value is not found in the sequence)</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="04bb5b76-017a-4a38-924f-7d7659cf5b31" class="code"><code class="language-Python">my_list = [1, 2, 3, 4, 5]
+
+is_in_list = 3 in my_list   # True
+is_not_in_list = 6 not in my_list  # True</code></pre><h3 id="0fc4affe-11d4-4789-8be8-58bd1109e2ed" class=""><strong>7. Identity Operators:</strong></h3><p id="466a591f-8233-410c-be4e-0d2a25345d5a" class="">These operators compare the memory locations of two objects.</p><ul id="9d960165-c439-462e-9163-f04cf29e2fc9" class="bulleted-list"><li style="list-style-type:disc"><code><strong>is</strong></code> (True if the operands are identical)</li></ul><ul id="71cc80ac-7f6d-4b4a-a061-5e9b50d6223b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>is not</strong></code> (True if the operands are not identical)</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="23794531-9a30-452b-98e8-370876f6ef87" class="code"><code class="language-Python">a = [1, 2, 3]
+b = [1, 2, 3]
+
+is_identical = a is b         # False
+is_not_identical = a is not b # True</code></pre><h3 id="fa7b8816-57b8-4d74-a20f-cb910b44088a" class=""><mark class="highlight-blue">Conditional Statements:</mark></h3><p id="16bd64b7-9417-44d2-a023-a8d4a7b21cc1" class="">Conditional statements in Python allow you to execute different blocks of code based on whether a given condition is true or false. The primary conditional statements in Python are <code><strong>if</strong></code>, <code><strong>elif</strong></code> (short for &quot;else if&quot;), and <code><strong>else</strong></code>. Here are examples of how they are used:</p><h3 id="456881e0-81dd-42a3-9a54-3cd0dce2c533" class=""><strong>1. </strong><code><strong>if</strong></code><strong> Statement:</strong></h3><p id="3d89fa77-5d6a-43c2-b17a-ab00c8da6e53" class="">The <code><strong>if</strong></code> statement is used to execute a block of code if a specified condition is true.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="53c21fd1-b5f5-4ac6-9b37-3259ef3f5b08" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = 10
+if x &gt; 5:
+    print(&quot;x is greater than 5&quot;)</code></pre><p id="08582a58-81d2-4e37-a790-bca295d2cb25" class=""><strong>Output:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7ae8783d-bea5-45a9-9c2b-646598f713ef" class="code"><code class="language-Plain Text">x is greater than 5</code></pre><h3 id="e91c0cd4-b392-4edd-922b-eec72c349290" class=""><strong>2. </strong><code><strong>if-else</strong></code><strong> Statement:</strong></h3><p id="445df91d-467d-45d0-8ada-ce025bdf24e8" class="">The <code><strong>if-else</strong></code> statement allows you to execute one block of code if a condition is true and another block if the condition is false.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7119f7f5-e4b7-4087-9141-cdcffc4fe7fe" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = 3
+if x &gt; 5:
+    print(&quot;x is greater than 5&quot;)
+else:
+    print(&quot;x is less than or equal to 5&quot;)</code></pre><p id="8eb2be74-41d0-400a-8f3e-fb6c594d9bb9" class=""><strong>Output:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c2fd137c-ed7f-4027-bdc6-0f1c73e77976" class="code"><code class="language-Plain Text">x is less than or equal to 5</code></pre><h3 id="0886909c-7480-492d-b98d-7459d0081cf2" class=""><strong>3. </strong><code><strong>if-elif-else</strong></code><strong> Statement:</strong></h3><p id="615f37e0-6f4b-4a7e-9216-330fcd236ccd" class="">The <code><strong>if-elif-else</strong></code> statement is used when you have multiple conditions to check. It allows you to specify a series of conditions, and the first one that is true will execute its associated block of code.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7a13fe12-9da0-4408-b56a-6f95c3193c3e" class="code"><code class="language-Python">score = 75
+
+if score &gt;= 90:
+    print(&quot;A grade&quot;)
+elif score &gt;= 80:
+    print(&quot;B grade&quot;)
+elif score &gt;= 70:
+    print(&quot;C grade&quot;)
+else:
+    print(&quot;Fail&quot;)</code></pre><p id="2f6decb0-8fa2-4a29-923f-2d90c6ed3214" class=""><strong>Output:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5c2a649e-f542-4af1-b905-dc40c1cef8fc" class="code"><code class="language-Plain Text"> C grade</code></pre><p id="90a06ee1-0a77-4179-bb3a-d1b1445f7dc5" class="">4.<strong><strong>Nested </strong></strong><code><strong><strong>if</strong></strong></code><strong><strong> Statement</strong></strong></p><p id="142f3953-347d-4e79-a53e-413c65a03843" class="">The if statement consits of inside the another if statement is called <code>nested-if </code>statement </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fd419871-b450-467c-9782-90ab5bf72a3e" class="code"><code class="language-Python">x = 10
+y = 5
+
+if x &gt; 5:
+    if y &gt; 2:
+        print(&quot;Both conditions are true&quot;)
+    else:
+        print(&quot;Inner condition is false&quot;)
+else:
+    print(&quot;Outer condition is false&quot;)</code></pre><p id="e4ce962e-2168-4b74-b3da-d7104227a1b7" class=""><strong>Output:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5acc7f63-0f74-452d-a9bf-9b8048221161" class="code"><code class="language-Plain Text">Both conditions are true</code></pre><h3 id="684a438c-a462-4fdb-9ffe-c140be133072" class="">5.<strong>Ternary Conditional Expression:</strong></h3><p id="031a7cd7-368c-47af-8719-3e4386ad31b7" class="">Python also supports a ternary conditional expression, which is a concise way to write simple <code><strong>if-else</strong></code> statements in a single line.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="cf59d08d-7eb1-4138-a20f-1252153f06c2" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">age = int(input(&quot;Enter age:&quot;))
+message = &quot;You are an adult&quot; if age &gt;= 18 else &quot;You are a minor&quot;
+print(message)</code></pre><p id="875f1c0c-01aa-402a-bb55-cd4c5f275394" class=""><strong>Output:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1d05f061-3128-4f1d-9608-7e67646e7218" class="code"><code class="language-Plain Text">Enter age:19
+You are an adult</code></pre><h3 id="4a4bfe43-2b5b-41dd-9cba-245d32e40199" class=""><mark class="highlight-red">Loops:</mark></h3><p id="2efb946b-3898-4340-83f4-f89aadf0431e" class="">In Python, loops are used to repeatedly execute a block of code. The two main types of loops are <code><strong>for</strong></code> and <code><strong>while</strong></code>. Here are examples of how they work:</p><h3 id="0897bd1d-9ed7-45f7-bb72-7a307cee8fc9" class=""><strong>1. </strong><code><strong>for</strong></code><strong> Loop:</strong></h3><p id="9c3cf8d2-ea1b-4883-be33-979ac8565840" class="">The <code><strong>for</strong></code> loop is used to iterate over a sequence (such as a list, tuple, string, or range) and execute a block of code for each item in the sequence.</p><p id="001448b4-03ee-43b0-8adb-2e87b7c08896" class=""><strong>Example with a List:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c2009c1f-182d-40a2-8fa8-e9ac399054ca" class="code"><code class="language-Python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+
+for fruit in fruits:
+    print(fruit)
+#Output:
+apple
+banana
+cherry</code></pre><h3 id="8b6d8aa4-e4ed-4ca7-b227-226e098f19e1" class="">Example with a Range:</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="68b64556-7e46-4e77-a46a-b40e2f5df402" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">for i in range(5):
+    print(i)
+#Output:
+0
+1
+2
+3
+4</code></pre><h3 id="f373003a-0985-4b04-860c-7d32c4bb06b8" class=""><code><strong>for</strong></code><strong> Loop with </strong><code><strong>else</strong></code><strong>:</strong></h3><p id="fdd216eb-4d0e-4491-a45f-767cd35ec25c" class="">You can include an <code><strong>else</strong></code> block which will be executed when the loop is exhausted (i.e., when there are no more items in the sequence).</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2a8d770a-3d71-479a-b25c-e8cd28cbac20" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+
+for fruit in fruits:
+    print(fruit)
+else:
+    print(&quot;No more fruits&quot;)
+#Output:
+apple
+banana
+cherry
+No more fruits</code></pre><h3 id="44c77ec8-2cd8-41d8-aa25-0a255fc58599" class=""><strong>2. </strong><code><strong>while</strong></code><strong> Loop:</strong></h3><p id="1844774a-6731-4c1c-91af-c561ec6231f1" class="">The <code><strong>while</strong></code> loop is used to repeatedly execute a block of code as long as a specified condition is true.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7603e2cd-6d92-447a-ac1d-ada4b63cc0b3" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">count = 0
+
+while count &lt; 5:
+    print(count)
+    count += 1
+#Output:
+0
+1
+2
+3
+4</code></pre><h3 id="808c0611-c545-48b3-b192-bc743363305d" class=""><code><strong>while</strong></code><strong> Loop with </strong><code><strong>else</strong></code><strong>:</strong></h3><p id="f82db552-6828-42a0-af51-afb048ad34e9" class="">Similar to the <code><strong>for</strong></code> loop, a <code><strong>while</strong></code> loop can also have an <code><strong>else</strong></code> block that is executed when the loop condition becomes false.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="41a83c8b-1f41-4e8e-b858-b6de3eed695d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">count = 0
+
+while count &lt; 5:
+    print(count)
+    count += 1
+else:
+    print(&quot;Loop completed&quot;)
+#Output:
+0
+1
+2
+3
+4
+Loop completed</code></pre><h3 id="78744f9a-32c9-4a35-b06c-0df6b7f32022" class=""><strong>Loop Control Statements:</strong></h3><h3 id="17488fe1-9801-4542-a2e0-758a5fde8239" class=""><code><strong>break</strong></code> Statement:</h3><p id="47b0c7de-4c28-4df1-84e6-bd8ccdcfc3cc" class="">The <code><strong>break</strong></code> statement is used to exit a loop prematurely.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="768e266e-6662-488b-97be-f2f286a9feef" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">for i in range(10):
+    if i == 3:
+        break
+    print(i)
+#Output:
+0
+1
+2</code></pre><h3 id="c1493bdd-fc3c-4234-910b-76298adb5f3d" class=""><code><strong>continue</strong></code> Statement:</h3><p id="688dc7d9-3867-48a8-9bc1-1abc909d1e22" class="">The <code><strong>continue</strong></code> statement is used to skip the rest of the code inside the loop for the current iteration and move to the next iteration.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f79acb0e-feee-4f1a-8f9d-e54b61671d4d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">for i in range(5):
+    if i % 2 == 0:
+        continue
+    print(i)
+#Output:
+1
+3</code></pre><h3 id="3e595910-8c3a-4ff6-8781-dfa6ac1f6729" class=""><strong>Nested Loops:</strong></h3><p id="73ff0480-30b3-4396-87a4-b654ec5b6992" class="">You can also nest loops inside each other for more complex scenarios.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4049948b-8e7f-49d8-a099-8e01a4025aee" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">for i in range(3):
+    for j in range(2):
+        print(i, j)
+#Output:
+0 0
+0 1
+1 0
+1 1
+2 0 
+2 1</code></pre><p id="eb4b66f5-8750-4e09-9014-8f7ef3934e98" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="73d410f9-7d37-487b-adde-ab73a6e39cb2"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">                          <mark class="highlight-teal"><strong> </strong></mark><mark class="highlight-teal"><strong><em><span style="border-bottom:0.05em solid">Remaining notes we will Updates Later</span></em></strong></mark></div></figure><p id="2e031bf6-83d7-4f4d-a59b-a884c55fabee" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

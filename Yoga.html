@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>YOGA AND MEDITATION</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6780ff49-32a4-4816-9075-3cdbb0b73894" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🧘🏻</span></div><h1 class="page-title">YOGA AND MEDITATION</h1><p class="page-description"></p></header><div class="page-body"><p id="4bdd8f42-a627-4a45-a2b2-ab921ff102cb" class="block-color-gray">Organize everything in your life in one place.</p><h2 id="70776823-647b-4990-ba48-8eedaa5db90c" class=""><span style="border-bottom:0.05em solid"><mark class="highlight-red"><em><strong>Yoga:</strong></em></mark></span></h2><hr id="f2017e3a-3418-4d84-b3f8-cc8e78d41be7"/><p id="b3b990c0-acc6-4a7c-9ec5-e6d7446cda91" class="block-color-blue_background"><em><strong>Yoga</strong></em> is a physical, mental, and spiritual practice that originated in ancient India. It involves a combination of physical postures, breathing exercises, meditation, and ethical principles. Yoga is known for its numerous health benefits, including increased flexibility, improved strength and balance, stress reduction, and enhanced mental clarity.</p><p id="2c7504a3-ba20-412d-a71d-426e57fe2c22" class="">According to Bhagavad gita yoga is the balance state of body and mind.</p><ul id="40288213-2d84-4eef-9231-48c5bfeb1e29" class="toggle"><li><details open=""><summary>Yoga is known for it’s ability to ease stress and promote relation.</summary></details></li></ul><ul id="01c32447-6fc6-42ca-89f7-f6139948ca1e" class="toggle"><li><details open=""><summary>It’s a union of mind, body and spirit.</summary></details></li></ul><h3 id="154ff51c-49c1-4670-bb7a-cf12250f4b04" class="">Types of yoga:</h3><ul id="88d211d0-1395-4295-9428-e540e7f2e1a1" class="bulleted-list"><li style="list-style-type:disc">Yama</li></ul><ul id="c597b352-84d9-4f1b-abe9-d41ce5be20a3" class="bulleted-list"><li style="list-style-type:disc">Niyama</li></ul><ul id="13f1b24a-f59d-4db4-97ae-2a57efa6d446" class="bulleted-list"><li style="list-style-type:disc">Asana</li></ul><ul id="bf0b5973-50bd-4bb2-8c49-9a9bf7819bc3" class="bulleted-list"><li style="list-style-type:disc">Pranayama</li></ul><ul id="0f025542-998d-40c0-a64a-acdd59adcedf" class="bulleted-list"><li style="list-style-type:disc">Dharana</li></ul><ul id="39f1f4c6-ca73-4d94-9c91-afcd31995ff3" class="bulleted-list"><li style="list-style-type:disc">Pratyahara</li></ul><ul id="e5e464c4-c183-4ad1-80f4-458f13b560d6" class="bulleted-list"><li style="list-style-type:disc">Dhyana</li></ul><ul id="aa38cdbc-ded5-4d03-b90f-c79a60c6ca90" class="bulleted-list"><li style="list-style-type:disc">Samadhi</li></ul><h3 id="09e0c4b5-b2b4-40db-8636-7dddee881829" class=""><mark class="highlight-yellow">Yama:</mark></h3><p id="a58e8bff-bb17-4f0c-8d3b-65a3107aaf3b" class="">Yama is the first limb of yoga and focuses on ethical principles and moral codes. It guides practitioners on how to interact with themselves and others in a virtuous and harmonious way. </p><figure id="f630b1db-6fd5-4fca-9318-fc82eaafd998" class="image"><a href="https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:432px" src="https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><h3 id="6a640824-e8f3-49f6-97c1-a20252c25e69" class=""><mark class="highlight-blue">Niyama:</mark></h3><p id="9be7ca6e-a89a-4dd2-a3fa-65d9742663fa" class="">Niyama is the second limb of yoga and focuses on self-discipline and self-care. It consists of practices that help individuals cultivate positive qualities and behaviors. Niyama yoga includes:</p><figure id="f738e324-f448-4d27-a79d-e7d5b762e6bc" class="image"><a href="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:432px" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><h3 id="317c6fee-b247-4dc5-b0c4-29767b3f1d77" class="">                                                       <code>Niyama</code></h3><h3 id="d32bf01a-8a59-47b4-a409-dcee4fcb8af7" class=""><mark class="highlight-teal">Asana:</mark></h3><p id="c8b201c0-9761-46b7-8442-7473124d4a0a" class="">Asana is the third limb of yoga and refers to the physical postures practiced in yoga. These postures are designed to promote strength, flexibility, and balance in the body. Asana yoga involves holding and transitioning between different poses, focusing on proper alignment and breathing. It is a key component of yoga practice and is often used to improve physical health and prepare the body for meditation.</p><figure id="c7425b95-2ec3-4b9f-a24d-d6d0027040a3" class="image"><a href="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:432px" src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><h3 id="3b712f41-36e1-4cb9-ac03-a83531183719" class="">                                                      <code> Asana</code></h3><h3 id="c6ff7f2b-a002-4744-b889-eda40852e300" class=""><mark class="highlight-gray">Pranayama:</mark></h3><p id="7dd428e3-02c2-4ae0-a9b9-7e6c235d9ec5" class="">Pranayama is the fourth limb of yoga and focuses on breath control and regulation. It involves various breathing techniques that help to enhance the flow of vital energy (prana) in the body. Pranayama practices can help calm the mind, increase focus, and improve overall well-being.</p><figure id="5ab9b1ce-3ec4-49d4-b819-47559d301f86" class="image"><a href="https://images.unsplash.com/photo-1566501206188-5dd0cf160a0e?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:384px" src="https://images.unsplash.com/photo-1566501206188-5dd0cf160a0e?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><h3 id="18000e61-6ace-42cc-be47-5159c6e787f1" class="">                                                     <code>Pranayama</code></h3><h3 id="cbc94229-d727-4ae7-8e06-86c4cbc97036" class=""><mark class="highlight-yellow">Pratyahara:</mark></h3><p id="7c27704a-b133-4a1f-bc57-9f49a3537762" class="">Pratyahara is the fifth limb of yoga and focuses on the withdrawal of the senses from external distractions. It involves consciously detaching oneself from the external sensory inputs and redirecting the attention inward. Pratyahara allows practitioners to cultivate a state of inner awareness and control over the senses, which is essential for deeper meditation and self-reflection.</p><figure id="b20893ab-13a4-4370-b859-7b5df0ae1ead" class="image"><a href="https://images.unsplash.com/photo-1491172700640-4f1a131a3670?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:384px" src="https://images.unsplash.com/photo-1491172700640-4f1a131a3670?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><h3 id="4bc44801-b841-456c-a69e-dfdd2c814f5f" class="">                                                 <code>Pratyahara</code></h3><h3 id="8af72bcc-70af-4504-b512-8e25514e4456" class="">Dharana:</h3><p id="9a0a972a-5b15-4313-8a50-eb1f485d622f" class="">Dharana is the sixth limb of yoga and refers to the practice of concentration and focus. It involves directing one&#x27;s attention to a single point or object, such as the breath, a mantra, or an image. Dharana is a preparatory step for meditation, as it helps to quiet the mind and cultivate a state of deep focus and awareness.</p><figure id="d4cf8f14-9b9c-4c4b-af10-e8ab64803f0d" class="image"><a href="https://images.unsplash.com/photo-1517363898874-737b62a7db91?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:384px" src="https://images.unsplash.com/photo-1517363898874-737b62a7db91?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><h3 id="ea26389a-4b78-49cc-b861-67409a96c935" class="">                                                   <code> Dharana</code></h3><h3 id="5a0808ad-07bd-44c1-b3b3-8759f0c2bd7a" class=""><mark class="highlight-purple">Dhyana:</mark></h3><p id="eec7d525-5526-4b13-bc0f-6ade96ed8b7a" class="">Dhyana is the seventh limb of yoga and refers to the practice of meditation. It involves achieving a state of deep concentration and mindfulness, where the mind is calm and focused. In dhyana, one becomes fully absorbed in the present moment, letting go of distractions and experiencing a sense of inner peace and clarity.</p><figure id="1a23645f-0b63-4b65-ae5a-ceb7a440b9d8" class="image" style="text-align:center"><a href="https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:384px" src="https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><h3 id="0385877f-6a35-4748-8497-695d1772766f" class="">                                                      <code> Dhyana</code></h3><h3 id="b8660507-774b-4522-b342-06bd7a903bd3" class=""><mark class="highlight-pink">Samadhi:</mark></h3><p id="5f4a13a1-9dcc-4cc3-afa3-44fde3ecbf18" class="">Samadhi is the eighth and final limb of yoga. It is a state of profound spiritual absorption, where the practitioner experiences a complete union with the divine or higher consciousness. In samadhi, the individual transcends the limitations of the ego and attains a state of pure bliss, peace, and oneness. It is considered the ultimate goal of yoga and represents the pinnacle of spiritual realization and enlightenment.</p><figure id="7245cfc0-ce11-458f-8d13-0f5b552aa6e0" class="image"><a href="https://images.unsplash.com/photo-1529693662653-9d480530a697?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:384px" src="https://images.unsplash.com/photo-1529693662653-9d480530a697?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><h3 id="d8000583-80ac-41b0-bfd4-7ffc7ec11d53" class="">                                                      <code><strong>Samadhi</strong></code></h3><h2 id="f8eaba8b-b25e-4af3-94ef-0da654f32cb5" class=""><strong><em><span style="border-bottom:0.05em solid"><mark class="highlight-purple">Meditation</mark></span></em></strong></h2><p id="151242ab-3154-4fc7-a446-66bc0f15a557" class=""><mark class="highlight-brown">Meditation is a practice that involves focusing the mind and achieving a state of deep relaxation and mental clarity. It is often used as a tool for stress reduction, improving concentration, and cultivating a sense of inner peace and well-being. During meditation, individuals typically sit or lie down in a comfortable position and engage in techniques such as focused breathing, mindfulness, or repeating a mantra. The goal of meditation is to quiet the mind, let go of thoughts, and experience a state of present-moment awareness. Regular meditation practice has been associated with numerous mental, emotional, and physical benefits.</mark></p><figure id="5fb301aa-1cf5-4acf-9d3c-355644db8f24" class="image"><a href="https://images.unsplash.com/photo-1558980971-97f50d0fed00?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img style="width:336px" src="https://images.unsplash.com/photo-1558980971-97f50d0fed00?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><ul id="85595b78-e861-445a-bd30-145b8aec7894" class="bulleted-list"><li style="list-style-type:disc">It is part of yoga</li></ul><ul id="370a7f98-edeb-402c-a9f0-d71343f5c5ce" class="bulleted-list"><li style="list-style-type:disc">Rest, Deep Relaxation.</li></ul><ul id="766f8783-79d0-4505-9e4b-d8b01436cac8" class="bulleted-list"><li style="list-style-type:disc">Benefits emotional well-being  and Overall health.</li></ul><h3 id="269645fe-54c4-4058-810d-68416146e236" class=""><em><mark class="highlight-orange">Benefits of yoga and meditation:</mark></em></h3><ul id="e9e8f5fe-7358-4503-826a-9808edec6049" class="bulleted-list"><li style="list-style-type:disc">Increased flexibility and strength</li></ul><ul id="68bda637-629d-4e4d-9480-08a555b3b3b5" class="bulleted-list"><li style="list-style-type:disc">Improved balance and posture</li></ul><ul id="06d61765-b63c-4187-97fb-c5f157165092" class="bulleted-list"><li style="list-style-type:disc">Stress reduction and relaxation</li></ul><ul id="8edc3f70-819f-4d19-a026-267f1055f53a" class="bulleted-list"><li style="list-style-type:disc">Enhanced mental clarity and focus</li></ul><ul id="171a1cfb-9ce5-4861-9cc1-a66a2f9c8bcd" class="bulleted-list"><li style="list-style-type:disc">Emotional well-being and inner peace</li></ul><ul id="5ccf1e67-722a-454e-98d0-6b0af5a81717" class="bulleted-list"><li style="list-style-type:disc">Improved concentration and mindfulness</li></ul><ul id="3b0f4c5f-75b0-4239-bdb5-36da9d66d81b" class="bulleted-list"><li style="list-style-type:disc">Boosted immune system and overall health</li></ul><h3 id="84c655c3-ad0c-41ec-ab89-c85b8e72e4b9" class=""><em><mark class="highlight-orange">Elements of Meditation:</mark></em></h3><ul id="1a73686f-89d3-462d-9c52-4938ba5d4c1a" class="bulleted-list"><li style="list-style-type:disc">Focused breathing</li></ul><ul id="ddb1c9af-87a9-4be1-87cc-a536df79a1fd" class="bulleted-list"><li style="list-style-type:disc">Mindfulness</li></ul><ul id="6e24b663-9aaf-47ce-9e16-d14e9584b8ab" class="bulleted-list"><li style="list-style-type:disc">Mantra repetition</li></ul><ul id="581401d9-7904-4f3c-9db8-043df58d68b9" class="bulleted-list"><li style="list-style-type:disc">Sitting or lying down in a comfortable position</li></ul><ul id="2b8160ff-939a-4b8b-a701-50564829a2c9" class="bulleted-list"><li style="list-style-type:disc">Letting go of thoughts and quieting the mind</li></ul><ul id="4f131d52-4c70-4266-a2d9-c1ea42e92d6e" class="bulleted-list"><li style="list-style-type:disc">Cultivating present-moment awareness</li></ul><p id="6f2a0837-c3be-4a02-8518-aea84e8b4daa" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
